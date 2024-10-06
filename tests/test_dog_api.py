@@ -1,6 +1,8 @@
 import pytest
 import requests
 
+
+
 BASE_URL = "https://dog.ceo/api"
 
 
