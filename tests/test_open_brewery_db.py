@@ -29,6 +29,8 @@ def test_get_breweries_by_city(city):
     assert response.status_code == 200
     assert isinstance(response.json(), list)
     assert len(response.json()) > 0
+    for resp_info in response.json():
+        assert city in resp_info.get('city'), f'Expected {city} in {resp_info}'
 
 
 @pytest.mark.parametrize("state", ["California", "New York"])

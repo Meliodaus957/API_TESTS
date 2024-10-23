@@ -21,6 +21,8 @@ def test_get_images_by_breed(breed):
     assert response.status_code == 200
     assert 'message' in response.json()
     assert len(response.json()['message']) > 0
+    for full_url in response.json()['message']:
+        assert breed in full_url, f'Expected {breed} in url {full_url}'
 
 
 def test_list_all_breeds():
@@ -38,6 +40,7 @@ def test_get_sub_breed_images(sub_breed):
     assert response.status_code == 200
     assert 'message' in response.json()
     assert len(response.json()['message']) > 0
+
 
 
 def test_get_random_image_by_breed():
